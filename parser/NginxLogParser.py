@@ -57,16 +57,6 @@ class NginxLogParser(LogParser):
                         self.mobjs[ht].err5xx_urls[url] += 1
                         raise ParserException('Http 5xx Error! %s' % line)
                     
-                    #check the response time
-                    #if response_time < self.time_options.expect:
-                    #    self.mobjs[ht].time_expect += 1
-                    #elif response_time < self.time_options.timeout:
-                    #    self.mobjs[ht].time_accept += 1
-                    #else :
-                    #    self.mobjs[ht].time_timeout += 1
-                    #    url='{domain}{uri}'.format(domain=ht, uri=uri)
-                    #    self.mobjs[ht].timeout_urls.add(url)
-
             
             # the line does not match pattern
             else :
@@ -132,7 +122,5 @@ class MetricObject(object):
         self.time_expect=0
         self.time_accept=0
         self.time_timeout=0
-        #self.err5xx_urls=set()
-        #self.timeout_urls=set()
         self.err5xx_urls=defaultdict(int)
         self.timeout_urls=defaultdict(int)

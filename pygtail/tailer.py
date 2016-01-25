@@ -17,7 +17,6 @@ class Tailer(object):
             raise TailerException(e)
 
     def yield_line(self):
-        #tailer=Pygtail(self.target_file, offset_file=self.offset_file, copytruncate=True)
         try:
             for line in self.pygtailer:
                 yield line
@@ -52,32 +51,6 @@ class Tailer(object):
 
         return self.pygtailer.offset == 0
         
-#    def get_duration(self, cut_interval):
-#        """
-#        Return the appropriate time interval of the readed log lines
-#        Notice: when file rotate, will find start time from parse log. It means we have to fix it to other file format
-#        """
-#        if self._is_rotated(cut_interval):
-#            i=1
-#            while True:
-#                line=linecache.getline(self.target_file, i)
-#                if not line:
-#                    self.duration = 0
-#                else:
-#                    for item in line.split():
-#                        if '[' == item[0]:
-#                            break
-#                    else :
-#                        i+=1
-#                        continue 
-#                    time_str=item[1:]
-#                    log_start_time=time.mktime(time.strptime(time_str,'%d/%b/%Y:%X'))
-#                    self.duration=self.start_time - math.floor(log_start_time)
-#                break
-#        if self.duration <= 0 :
-#            raise TailerExcetion('The calculated duration({value})<=0'.format(value=self.duration))
-#        else:
-#            return self.duration
 
     def get_duration(self, cut_interval):
         """
