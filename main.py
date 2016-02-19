@@ -11,10 +11,10 @@ from parser.NginxLogParser import NginxLogParser, ParserException
 from logyer_helper import *
 
 current_dir=os.path.dirname(os.path.realpath(__file__))
-conf_file=os.path.join(current_dir, 'conf', 'logster.conf')
+conf_file=os.path.join(current_dir, 'conf', 'logyer.conf')
 offset_dir=os.path.join(current_dir,'offset')
 log_dir=os.path.join(current_dir, 'log')
-lock_file=os.path.join(current_dir, 'logster.lock')
+lock_file=os.path.join(current_dir, 'logyer.lock')
 sender_file='/tmp/sender_file'
 
 #初始化logger对象
