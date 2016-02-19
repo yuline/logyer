@@ -8,7 +8,7 @@ import time
 import multiprocessing
 from pygtail.tailer import Tailer, TailerException
 from parser.NginxLogParser import NginxLogParser, ParserException
-from logster_helper import *
+from logyer_helper import *
 
 current_dir=os.path.dirname(os.path.realpath(__file__))
 conf_file=os.path.join(current_dir, 'conf', 'logster.conf')
